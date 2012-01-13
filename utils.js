@@ -90,6 +90,14 @@
  			this.context.clearRect(0, 0, this.width, this.height);	
  		}
  		
+ 		this.checkCollision = function(x, y){
+ 			var imgbin = this.context.getImageData(x, y, 15, 15);
+ 			for(var i=0; i < imgbin.data.length; i++){
+ 				if(imgbin.data[i] == 0) return true;
+ 			}
+ 			return false;
+ 		}
+ 		
  		if(zindex!=null) this.setZIndex(zindex);
 	 }
 	 

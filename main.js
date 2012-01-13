@@ -6,8 +6,7 @@
 	var height = 800;
 	var x=200;
 	var y=5;
-	var dx = 5;
-	var dy = 5;
+	var d=5;
 	
 	function rect(x,y,w,h){
 		layer3.context.fillStyle="blue";
@@ -22,19 +21,20 @@
 		rect(x, y, 15,15);
 	}
 	
-	function doKeyDown(evt){
+	function doKeyDown(evt){		
+		
 		switch(evt.keyCode){
 			case 38: // Up
-				y-=5;
+				if(!background.checkCollision(x, y-d)) y-=d;
 				break;
 			case 40: // Down
-				y+=5;
+				if(!background.checkCollision(x, y+d)) y+=d;
 				break;
 			case 37: // Left
-				x-=5;
+				if(!background.checkCollision(x-d, y)) x-=d;
 				break;
 			case 39: // Right
-				x+=5;
+				if(!background.checkCollision(x+d, y)) x+=d;
 				break;
 		}
 	}
@@ -45,17 +45,17 @@
 		background = new Canvas("background", width, height, "background", 0);
 			background.setBackgroundImage("images/path.png");
 			
-		layer2 = new Canvas("layer2", width, height, "layer", 1);			
+		layer2 = new Canvas("layer2", width, height, "layer", 1);
 			layer2.setBackgroundImage("images/SizeRef.jpg");					
 		
 		layer3 = new Canvas("layer3", width, height, "layer", 2);
-			
-		
+					
 		group.appendChild( background.getObject() );
 		group.appendChild( layer2.getObject() );
 		group.appendChild( layer3.getObject() );
 		
 		window.addEventListener('keydown', doKeyDown, true);
+		
 		return setInterval(draw, 100);
 	}
 	
