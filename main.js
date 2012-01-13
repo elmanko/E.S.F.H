@@ -42,16 +42,14 @@
 	function init() {
 		var group = $("canvasdiv");
 		
-		background = new Canvas("background", width, height, "background");
-			background.setZIndex(0);
+		background = new Canvas("background", width, height, "background", 0);
 			background.setBackgroundImage("images/path.png");
 			
-		layer2 = new Canvas("layer2", width, height, "layer");
-			layer2.setZIndex(1);
+		layer2 = new Canvas("layer2", width, height, "layer", 1);			
 			layer2.setBackgroundImage("images/SizeRef.jpg");					
 		
-		layer3 = new Canvas("layer3", width, height, "layer");
-			layer3.setZIndex(2);
+		layer3 = new Canvas("layer3", width, height, "layer", 2);
+			
 		
 		group.appendChild( background.getObject() );
 		group.appendChild( layer2.getObject() );

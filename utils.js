@@ -55,7 +55,7 @@
 		}
 	}
 	
-	var Canvas = function(id, width, height, classname){
+	var Canvas = function(id, width, height, classname, zindex){
 		this.width = width;
 		this.height = height;
 		this.obj = document.createElement("canvas");
@@ -63,7 +63,7 @@
 			this.obj.setAttribute("width", width);
 			this.obj.setAttribute("height", height);
 			this.obj.setAttribute("class", classname);			
-	 	
+				 		
 	 	this.context = this.obj.getContext("2d");
 	 	
  		this.setZIndex = function(index){ 
@@ -89,6 +89,8 @@
  		this.clear = function(){
  			this.context.clearRect(0, 0, this.width, this.height);	
  		}
+ 		
+ 		if(zindex!=null) this.setZIndex(zindex);
 	 }
 	 
 	 
