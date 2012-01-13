@@ -76,10 +76,8 @@
  			return this.obj;
  		}
  		
- 		this.setBackgroundImage = function(src){
- 			var img = new Image();
-				img.src = src;
-			this.context.drawImage(img, 0, 0);
+ 		this.setBackgroundImage = function(img){
+			this.context.drawImage(img, 0, 0);			
  		}
  		
  		this.getContext = function(){
@@ -98,7 +96,49 @@
  			return false;
  		}
  		
- 		if(zindex!=null) this.setZIndex(zindex);
+ 		if(zindex != null) this.setZIndex(zindex);
 	 }
 	 
-	 
+	var Enemie = function(nombre, x, y, canvas){
+		this.nombre = nombre;		
+		this.x = x;
+		this.y = y;
+		this.canvas = canvas;
+		this.context = this.canvas.context;
+		
+		this.getPosition = function(){
+			return new Array(x, y);
+		}
+		
+		this.paint = function(){
+			this.context.fillStyle="red";
+			this.context.beginPath();
+			this.context.arc(x, y, 7, 0, Math.PI*2, true);
+			this.context.closePath();
+			this.context.fill();
+		}
+		
+		this.createRoute = function(){
+			/*var p1 = new Array(this.x-5, this.y-5);
+			var p2 = new Array(this.x+5, this.y-5);
+			var p3 = new Array(this.x-5, this.y+5);
+			var p4 = new Array(this.x+5, this.y+5);
+			
+			console.log(this.canvas.checkCollision(p1[0], p1[1]) );
+			console.log(this.canvas.checkCollision(p2[0], p2[1]) );
+			console.log(this.canvas.checkCollision(p3[0], p3[1]) );
+			console.log(this.canvas.checkCollision(p4[0], p4[1]) );*/
+			
+		}
+	}	 
+
+
+
+
+
+
+
+
+
+
+
