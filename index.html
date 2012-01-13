@@ -3,16 +3,22 @@
 	<head>
 		<meta charset="UTF-8" />
 		<title>Preview: evil scientist of hell</title>
-
+		<script language="javascript" src="utils.js"></script>
+		<script language="javascript" src="main.js"></script>
+		<style>			
+			.background{
+				position: absolute;  
+				left: 100px; 
+				top: 10px;
+			}
+			.layer{
+				position: absolute;
+				left: 100px;
+				top: 10px;
+			}
+		</style>
 	</head>
-	<body>
-	preview 1:
-	<div id="canvasdiv"> 
-		<canvas id="layer2" width="1024" height="800" style="position:absolute; z-index:2; left:100px; top:10px;" />
-		<canvas id="canvas" width="1024" height="800" style="position:absolute; z-index:1; left:100px; top: 10px;" />
-			BOO BOO your browser doesnt support HTML5, whats wrong with you... u.u
-		</canvas>
-	</div>
-	</body>
-<script language="JavaScript" SRC="functions.js"></script>
+	<body onLoad="init();">	
+		<div id="canvasdiv"></div>
+	</body>	
 </html>
