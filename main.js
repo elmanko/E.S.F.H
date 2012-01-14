@@ -28,8 +28,8 @@
 		rect(x, y, 15,15);
 		rect(300, 605, 3, 3);
 		
-		/*for(var i=0; i<enemies.length; i++)
-			enemies[i].paint();*/
+		for(var i=0; i<enemies.length; i++)
+			enemies[i].paint();
 	}
 	
 	function doKeyDown(evt){				
