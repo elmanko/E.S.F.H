@@ -111,7 +111,7 @@
 			new Array(1020, 700)
 		);
 		this.pointer = 0;
-		this.velocity = 2;
+		this.velocity = 5;
 		
 		this.getPosition = function(){
 			return new Array(x, y);
