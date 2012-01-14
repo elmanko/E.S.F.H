@@ -105,21 +105,48 @@
 		this.y = y;
 		this.canvas = canvas;
 		this.context = this.canvas.context;
+		this.route = new Array(
+			new Array(300, 605)
+		);
+		this.pointer = 0;
+		this.velocity = 5;
 		
 		this.getPosition = function(){
 			return new Array(x, y);
 		}
 		
 		this.paint = function(){
+			if(this.pointer < this.route.length){							
+				this.move(this.route[this.pointer]);
+			}
 			this.context.fillStyle="red";
 			this.context.beginPath();
-			this.context.arc(x, y, 7, 0, Math.PI*2, true);
+			this.context.arc(this.x, this.y, 5, 0, Math.PI*2, true);
 			this.context.closePath();
 			this.context.fill();
 		}
 		
-		this.createRoute = function(){
-			/*var p1 = new Array(this.x-5, this.y-5);
+		this.move = function(point){								
+			var xo = point[0];
+			var yo = point[1];
+			var r = 5;			
+			
+			if(this.y > yo+r || this.y < yo+r){
+				if(this.y > yo)
+					this.y-=this.velocity;
+				else
+					this.y+=this.velocity;
+			}
+			if(this.x > xo+r || this.x < xo-r){
+				if(this.x > xo)
+					this.x-=this.velocity;
+				else
+					this.x+=this.velocity;
+			}			
+		}
+		
+		/*this.createRoute = function(){
+			var p1 = new Array(this.x-5, this.y-5);
 			var p2 = new Array(this.x+5, this.y-5);
 			var p3 = new Array(this.x-5, this.y+5);
 			var p4 = new Array(this.x+5, this.y+5);
@@ -127,9 +154,9 @@
 			console.log(this.canvas.checkCollision(p1[0], p1[1]) );
 			console.log(this.canvas.checkCollision(p2[0], p2[1]) );
 			console.log(this.canvas.checkCollision(p3[0], p3[1]) );
-			console.log(this.canvas.checkCollision(p4[0], p4[1]) );*/
+			console.log(this.canvas.checkCollision(p4[0], p4[1]) );
 			
-		}
+		}*/
 	}	 
 
 

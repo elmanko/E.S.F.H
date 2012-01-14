@@ -7,12 +7,13 @@
 	var x=200;
 	var y=5;
 	var d=5;
-	
-	var tank;
+		
 	var img_background = new Image();
 		img_background.src = "images/path.png";
 	var img_map = new Image();
 		img_map.src = "images/SizeRef.jpg";
+	
+	var enemies = new Array();
 	
 	function rect(x,y,w,h){
 		layer3.context.fillStyle="blue";
@@ -25,7 +26,10 @@
 	function draw(){
 		layer3.clear();
 		rect(x, y, 15,15);
-		tank.paint();
+		rect(300, 605, 3, 3);
+		
+		for(var i=0; i<enemies.length; i++)
+			enemies[i].paint();
 	}
 	
 	function doKeyDown(evt){				
@@ -57,7 +61,11 @@
 		layer3 = new Canvas("layer3", width, height, "layer", 2);
 		
 		// Creación de enemigos
-		tank = new Enemie("tank", 120, 600, layer3);
+		enemies.push( new Enemie("tank", 120, 605, layer3) );
+		enemies.push( new Enemie("tank1", 120, 200, layer3) );
+		enemies.push( new Enemie("tank2", 50, 50, layer3) );
+		enemies.push( new Enemie("tank3", 900, 500, layer3) );		
+		 
 					
 		group.appendChild( background.getObject() );
 		group.appendChild( layer2.getObject() );
