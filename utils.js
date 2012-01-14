@@ -106,10 +106,12 @@
 		this.canvas = canvas;
 		this.context = this.canvas.context;
 		this.route = new Array(
-			new Array(300, 605)
+			new Array(300, 605),
+			new Array(0, 0),
+			new Array(1020, 700)
 		);
 		this.pointer = 0;
-		this.velocity = 5;
+		this.velocity = 2;
 		
 		this.getPosition = function(){
 			return new Array(x, y);
@@ -129,34 +131,36 @@
 		this.move = function(point){								
 			var xo = point[0];
 			var yo = point[1];
-			var r = this.velocity;			
+			var xv = false;
+			var yv = false;
 			
-			if(this.y > yo+r || this.y < yo+r){
+			if(this.y > yo + this.velocity || this.y < yo + this.velocity){
 				if(this.y > yo)
 					this.y-=this.velocity;
 				else
 					this.y+=this.velocity;
 			}
-			if(this.x > xo+r || this.x < xo-r){
+			else
+				yv = true;
+				
+			if(this.x > xo + this.velocity || this.x < xo - this.velocity){
 				if(this.x > xo)
 					this.x-=this.velocity;
 				else
 					this.x+=this.velocity;
-			}			
+			}
+			else
+				xv = true;
+				
+			if(xv && yv)
+				this.pointer++;
 		}
 		
-		/*this.createRoute = function(){
-			var p1 = new Array(this.x-5, this.y-5);
-			var p2 = new Array(this.x+5, this.y-5);
-			var p3 = new Array(this.x-5, this.y+5);
-			var p4 = new Array(this.x+5, this.y+5);
+		this.createRoute = function(){			
 			
-			console.log(this.canvas.checkCollision(p1[0], p1[1]) );
-			console.log(this.canvas.checkCollision(p2[0], p2[1]) );
-			console.log(this.canvas.checkCollision(p3[0], p3[1]) );
-			console.log(this.canvas.checkCollision(p4[0], p4[1]) );
-			
-		}*/
+		}
+		
+		
 	}	 
 
 
