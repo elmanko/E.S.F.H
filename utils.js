@@ -129,7 +129,7 @@
 		this.move = function(point){								
 			var xo = point[0];
 			var yo = point[1];
-			var r = 5;			
+			var r = this.velocity;			
 			
 			if(this.y > yo+r || this.y < yo+r){
 				if(this.y > yo)
