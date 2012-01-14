@@ -59,12 +59,12 @@
 			layer2.setBackgroundImage(img_map);					
 		
 		layer3 = new Canvas("layer3", width, height, "layer", 2);
-		
-		// Creación de enemigos
+				
 		enemies.push( new Enemie("tank", 120, 605, layer3) );
 		enemies.push( new Enemie("tank1", 120, 200, layer3) );
 		enemies.push( new Enemie("tank2", 50, 50, layer3) );
 		enemies.push( new Enemie("tank3", 900, 500, layer3) );		
+		enemies.push( new Enemie("tank3", 1000, 0, layer3) );
 		 
 					
 		group.appendChild( background.getObject() );
